@@ -1,0 +1,12 @@
+version: '3'
+services:
+  db: # this is the service name
+    image: postgres # this is the Docker image we want for this service
+    environment: # We can set shell environment variables that will be passed to process
+      POSTGRES_PASSWORD: node4db
+    ports:
+      - 5432:5432 # this binds ports from the container to the host system (your computer)
+    volumes:
+      - node4db:/var/lib/postgresql/data # binds a folder in the container to a specified volume
+volumes:
+  node4db: # creates a volume (just data on disk) that docker manages for us.
